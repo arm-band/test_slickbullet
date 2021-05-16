@@ -1,0 +1,58 @@
+<%
+    parameters = {
+        sitename: 'SlickBullet',
+        title: 'Ingenuity',
+        description: '初回ロード時・リロード時のみ @keyframes アニメーションを使用、以降は Slick の current-slide を使ってキャプションにフェードインアニメーションを実装したデモです。',
+        author: 'アルム＝バンド',
+        copyright: 2021,
+        themecolor: '#ff9100',
+        url: 'http://arm-band.github.io/test_slickbullet/',
+        headstr: {
+            first: 'Impulsive First',
+            second: 'Destructive Second',
+            last: 'Erasive Last'
+        },
+    }
+-%>
+<%- include('partial/_head') %>
+<body>
+<%- include('partial/_header') %>
+<div class="eyecatch">
+    <h1 class="sr-only"><%= parameters.title %></h1>
+    <ul class="slider ingenuitySlider mx-0 mb-0 p-0 ">
+        <li class="slider_first">
+            <p class="caption"><%= parameters.headstr.first %></p>
+            <div class="slider_imgWrapper">
+                <img src="https://placehold.jp/24/ff9100/db0303/1200x800.jpg" class="img-fluid">
+            </div>
+        </li>
+        <li class="slider_second">
+            <p class="caption"><%= parameters.headstr.second %></p>
+            <div class="slider_imgWrapper">
+                <img src="https://placehold.jp/24/ff9100/db0303/1200x800.jpg" class="img-fluid">
+            </div>
+        </li>
+        <li class="slider_last">
+            <p class="caption"><%= parameters.headstr.last %></p>
+            <div class="slider_imgWrapper">
+                <img src="https://placehold.jp/24/ff9100/db0303/1200x800.jpg" class="img-fluid">
+            </div>
+        </li>
+    </ul>
+</div>
+<main class="l-main">
+    <section class="container py-5">
+        <h1><%= parameters.title %><small class="ml-2" id="hello"></small></h1>
+        <p><%= parameters.description %></p>
+    </section>
+    <section class="container pb-5">
+        <h2>Lorem Ipsum</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </section>
+</main>
+<%- include('partial/_footer') %>
+<%- include('partial/_js_loader') %>
+</body>
+</html>

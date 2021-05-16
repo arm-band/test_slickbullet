@@ -1,0 +1,28 @@
+<%
+    parameters = {
+        sitename: 'SlickBullet',
+        title: 'Home',
+        description: 'Slick の current-slide を使ったキャプションに関するデモです。',
+        author: 'アルム＝バンド',
+        copyright: 2021,
+        themecolor: '#ff9100',
+        url: 'http://arm-band.github.io/test_slickbullet/',
+    }
+-%>
+<%- include('partial/_head') %>
+<body class="index">
+<%- include('partial/_header') %>
+<main class="l-main">
+    <section class="container py-5">
+        <h1><%= parameters.title %></h1>
+        <p><%= parameters.description %></p>
+        <div class="list-group w-100">
+            <a href="./default.html" class="list-group-item list-group-item-action">通常のキャプションアニメーション</a>
+            <a href="./ingenuity.html" class="list-group-item list-group-item-action">今回工夫したキャプションアニメーション</a>
+          </div>
+    </section>
+</main>
+<%- include('partial/_footer') %>
+<%- include('partial/_js_loader') %>
+</body>
+</html>

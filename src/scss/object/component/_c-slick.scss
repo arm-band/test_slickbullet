@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+@use "../../foundation" as f;
+
+//slick
+.slider {
+    overflow: hidden;
+    position: relative;
+    height: calc(100vw / 1200px * 800px);
+    max-height: 80vh;
+    z-index: 1;
+    li {
+        img {
+            width: 100%;
+        }
+    }
+    .slide_arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 2;
+        transition: all .3s ease;
+        .fa-fw {
+            color: f.$accent-color;
+            cursor: pointer;
+        }
+        &Left {
+            left: -100%;
+        }
+        &Right {
+            right: -100%;
+        }
+    }
+    &.arrowShow {
+        .slide_arrow {
+            &Left {
+                left: 0;
+            }
+            &Right {
+                right: 0;
+            }
+        }
+    }
+    .slider_imgWrapper {
+        transform: translateY(-20%);
+    }
+}
+.slider li {
+    position: relative;
+}
+.slider .caption {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -20%);
+    font: {
+        family: 'Reggae One', cursive;
+        size: calc(1rem + 2vw);
+    }
+    color: f.$link-color;
+    z-index: 1000;
+}
+$transition-speed: .3s;
+$transition-delay: .5s;
+/* 初回ロード時のみ Slick の transition アニメーションが効かないため、独自にcss @keyframes で同じ transition アニメーションを指定 */
+@keyframes firstLoadFade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.ingenuitySlider .slider_first .caption {
+    opacity: 0;
+    animation: firstLoadFade $transition-speed ease $transition-delay 1 normal none running;
+}
+.defaultSlider .slick-slide .caption {
+    opacity: 0;
+    transition: opacity $transition-speed ease;
+}
+.ingenuitySlider .slick-slide .caption {
+    opacity: 0;
+    transition: opacity $transition-speed ease, visibility $transition-speed ease; /* プロパティ名なしだとブレークポイントを通りこした場合に font-size がディレイを伴ってアニメーションしてしまうので opacity のみにする。どうも @keyframes は visibility も絡むっぽいので複数指定。これで最小限のプロパティのみアニメーションするように限定 */
+}
+.defaultSlider .slick-current .caption,
+.ingenuitySlider .slick-current .caption {
+    opacity: 1;
+    transition-delay: $transition-delay;
+}
